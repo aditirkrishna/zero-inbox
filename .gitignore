@@ -34,6 +34,9 @@ zibox.log
 # Notebooks and temp docs
 *.ipynb
 
+# Allow Jupyter notebooks in docs directory
+!docs/*.ipynb
+
 # Ignore by default all debug fingerprints
 /target/debug/.fingerprint/
 

@@ -1,19 +1,21 @@
-# Zero Inbox Usage Guide
+# zero-inbox: Usage Guide
 
-This guide explains how to use Zero Inbox to create and compile task plans.
+>Usage Guide v1.0 - Because reading manuals shouldn't be painful
 
-## Creating .zbx Files
+Welcome to the zero-inbox CLI. This guide explains how to turn your caffeine-fueled thoughts into structured productivity.
 
-Zero Inbox uses a simple, human-readable syntax for defining tasks and blocks. Here's a basic example:
+## Writing .zbx Files
+
+Zero Inbox uses a simple, human-readable syntax that even your sleep-deprived brain can understand. Here's a realistic example:
 
 ```
 @morning
-  check(email) [15m]
-  standup(meeting) [30m]
+  check(email) [15m]  # Mostly spam anyway
+  standup(meeting) [30m]  # The daily ritual
 
 @afternoon
-  code(feature) [2h]
-  meeting(planning) [1h]
+  code(feature) [2h]  # Optimistic estimate
+  meeting(planning) [1h]  # Could've been an email
 ```
 
 ### Syntax Elements
@@ -122,3 +124,7 @@ To see all supported output formats:
 ```bash
 zibox formats
 ```
+
+<p align="center">built with ❤️ by aditi ramakrishnan</p>
+
+*Usage Guide v1.0 - Because reading manuals shouldn't be painful*

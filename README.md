@@ -1,34 +1,34 @@
-# Zero Inbox
+# zero-inbox: when your to-do list needs its own compiler
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Rust](https://github.com/zero-inbox/zero-inbox/workflows/Rust/badge.svg)](https://github.com/zero-inbox/zero-inbox/actions)
 
-> "Because your brain deserves a compiler, too."
+> "Compiling your chaos since 2023"
 
 ---
 
-## What is Zero Inbox?
+## Introduction
 
-Zero Inbox is a hand-crafted, slightly over-engineered, and definitely not AI-generated CLI tool for turning your chaotic, human-readable task lists into beautifully structured, machine-executable plans. It's a compiler. For your attention. In Rust. Because why not?
+Zero Inbox is what happens when a developer has one too many espresso shots and thinks: "My TODO list should compile." It's a CLI tool that turns your chaotic human thoughts into executable plans. Written in Rust because we like our memory safe and our compile times long.
 
-- **Minimalist DSL**: Write your day like code. Because you already think in lists.
-- **Output options**: Shell scripts, Markdown, JSON, or even a calendar file. Impress your friends, confuse your enemies.
-- **Cross-platform**: Windows, macOS, Linux. If it runs Rust, it runs Zero Inbox.
+- **Minimalist DSL**: Write your day like code. Because `buy(milk)` is objectively better than "remember to buy milk"
+- **Output options**: Shell scripts, Markdown, JSON, or even a calendar file. Pick your poison.
+- **Cross-platform**: Works everywhere Rust does (which is everywhere except your toaster... yet)
 
 ---
 
 ## Installation
 
 ### Prerequisites
-- [Rust toolchain](https://rustup.rs/) (because you like living on the edge)
-- Git (for the source-code purists)
+- [Rust toolchain](https://rustup.rs/) - because living on the edge is more fun with memory safety
+- Git - for those who like their source code like their coffee: fresh and bitter
 
-### Install the easy way
+### The Easy Way (Recommended for Normal Humans)
 ```sh
 cargo install zibox
 ```
 
-### Or build from source (for the control freaks)
+### From Source 
 ```sh
 git clone https://github.com/zero-inbox/zero-inbox.git
 cd zero-inbox
@@ -40,25 +40,22 @@ cargo install --path .
 
 ---
 
-## Quick Start (Because Reading is for Later)
+## Quick Start (Before You Change Your Mind)
 
-1. **Write a `.zbx` file:**
+1. **Write a `.zbx` file** because we need more file extensions in our lives:
    ```
    @morning
-     write(report) [2h]
-     clear(inbox)
+     write(report) [2h]  # 2 hours? Optimistic.
+     clear(inbox)        # As if
 
-   drink(coffee) [15m]
-
-   @evening
-     reflect(day) [1h]
-     read(book) [30m]
+   drink(coffee) [15m]   # The most important task
    ```
-2. **Compile your plan:**
+
+2. **Compile your life choices**:
    ```sh
    zibox daily_plan.zbx
    ```
-   By default, you get Markdown. Because everyone loves checklists.
+   Defaults to Markdown because checklists give us the illusion of control.
 
 ---
 
@@ -113,11 +110,11 @@ cargo install --path .
 
 ---
 
-## Platform Notes (No Excuses)
+## Platform Notes
 
-- **Windows:** Shell scripts need WSL, Git Bash, or a compatible terminal. Everything else works natively. Welcome to 2024.
-- **macOS/Linux:** Everything just works. Unless it doesn't, in which case, blame your package manager.
-- **Calendar:** `.ics` output works everywhere. If it doesn't, it's not our fault.
+- **Windows**: Requires WSL/Git Bash for shell scripts. Everything else works natively
+- **macOS/Linux**: Should work out of the box. If not, check your Rust installation
+- **Calendar**: Standard .ics format supported by most calendar apps
 
 ---
 
@@ -135,7 +132,7 @@ cargo install --path .
 
 ---
 
-## Features (Because Bullet Points Are Fun)
+## Features (because bullet points are fun)
 
 - Minimal, readable DSL for tasks
 - Multiple output formats (shell, markdown, JSON, calendar)
@@ -151,14 +148,16 @@ cargo install --path .
 
 - [Project Steps](steps.md): The full, slightly obsessive development plan
 - [Usage Guide](docs/USAGE.md): Step-by-step instructions and advanced examples
-- [AST Implementation](docs/AST_IMPLEMENTATION.md): For compiler nerds
+- [AST Implementation](docs/ast-guide.md): For those who like their parsers with extra caffeine
 
 ---
 
 ## License
 
-MIT. Because sharing is caring.
+MIT licensed. Use responsibly - we're not liable for any productivity gains (or losses).
 
 ---
 
-*Zero Inbox: Written by humans, for humans. No AI, no magic, just a lot of coffee and questionable life choices.*
+<p align="center">built with ❤️ by aditi ramakrishnan</p>
+
+*Zero Inbox: When your TODO list needs its own compiler*
