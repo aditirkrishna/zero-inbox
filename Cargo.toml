@@ -12,7 +12,7 @@ keywords = ["productivity", "compiler", "task-management", "cli"]
 categories = ["command-line-utilities"]
 
 [dependencies]
-chrono = "0.4"
+chrono = { version = "0.4", features = ["serde"] }
 clap = { version = "4.4", features = ["derive"] }
 serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"

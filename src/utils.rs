@@ -1,5 +1,6 @@
 use std::path::Path;
 use anyhow::{Result, anyhow};
+use chrono::Timelike;
 
 /// Slugify a string for use in filenames
 pub fn slugify(input: &str) -> String {

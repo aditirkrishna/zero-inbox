@@ -34,7 +34,7 @@ struct Cli {
     input_file: Option<PathBuf>,
     
     /// Output format (shell, markdown, json, calendar)
-    #[arg(short, long, value_name = "FORMAT")]
+    #[arg(long, value_name = "FORMAT")]
     output_format: Option<String>,
     
     /// Output file path
@@ -100,57 +100,48 @@ enum Commands {
 }
 
 fn main() -> Result<()> {
-    // Initialize logger
+    // Start the logger. Because you want to know what your code is doing, right?
     env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
     
-    // Parse command line arguments
+    // Parse CLI arguments. If the user messes up, clap will let them know.
     let cli = Cli::parse();
     
-    // Load config
+    // Load config from file or use defaults. Because who doesn't love config files?
     let mut config = Config::load()?;
     
-    // Override config with command line arguments
+    // Override config with CLI args. User is always right (even when they're wrong).
     if let Some(format) = cli.output_format {
         config.output_format = format;
     }
-    
     if let Some(file) = &cli.output_file {
         config.output_file = Some(file.to_string_lossy().to_string());
     }
-    
     if let Some(start) = cli.workday_start {
         config.workday_start = start;
     }
-    
     if let Some(end) = cli.workday_end {
         config.workday_end = end;
     }
-    
     if let Some(mode) = cli.schedule_mode {
         config.schedule_mode = mode;
     }
-    
     if let Some(level) = cli.opt_level {
         config.optimization_level = level;
     }
-    
     if let Some(tags) = cli.focus_tag {
         config.focus_tags = tags;
     }
-    
     if let Some(parallel) = cli.max_parallel {
         config.max_parallel = parallel;
     }
-    
     if let Some(tag) = cli.deepwork_tag {
         config.deepwork_tag = tag;
     }
-    
     config.dry_run = cli.dry_run;
     config.show_ir = cli.show_ir;
     config.visualize_schedule = cli.visualize_schedule;
     
-    // Handle subcommands
+    // Handle subcommands (formats, new). Because sometimes you want more than just "run".
     if let Some(cmd) = cli.command {
         match cmd {
             Commands::Formats => {
@@ -162,7 +153,7 @@ fn main() -> Result<()> {
         }
     }
     
-    // Handle main command
+    // Main command: compile a .zbx file. If you forgot the file, that's on you.
     let input_file = match cli.input_file {
         Some(path) => path,
         None => {
@@ -172,33 +163,30 @@ fn main() -> Result<()> {
         }
     };
     
-    // Check if input file exists
+    // Check if the file exists. Because we can't compile what isn't there.
     if !input_file.exists() {
         return Err(anyhow!("Input file not found: {}", input_file.display()));
     }
     
-    // Compile the input file
+    // Compile the input file into something useful.
     info!("Compiling {}", input_file.display());
     let output = zero_inbox::compile(&input_file, &config)?;
     
-    // Show IR if requested
+    // Show the IR if requested. For the nerds who want to see the sausage get made.
     if config.show_ir {
         let ast = zero_inbox::parse_file(&input_file)?;
         let metadata = config.to_ir_metadata()?;
         let ir = zero_inbox::ir::to_ir(&ast, metadata);
-        
         println!("\n{}\n", "Intermediate Representation:".yellow().bold());
         println!("{:#?}", ir);
         println!();
     }
     
-    // Visualize schedule if requested
+    // Visualize the schedule if requested. Because ASCII art never goes out of style.
     if config.visualize_schedule {
         let ast = zero_inbox::parse_file(&input_file)?;
         let metadata = config.to_ir_metadata()?;
         let mut ir = zero_inbox::ir::to_ir(&ast, metadata);
-        
-        // Optimize and schedule
         zero_inbox::optimizer::optimize(&mut ir);
         let schedule_mode = config.get_schedule_mode()?;
         let scheduler = zero_inbox::scheduler::create_scheduler(
@@ -206,37 +194,31 @@ fn main() -> Result<()> {
             if config.deepwork_tag.is_empty() { None } else { Some(config.deepwork_tag.clone()) }
         );
         scheduler.schedule(&mut ir);
-        
         println!("\n{}\n", "Schedule Visualization:".yellow().bold());
         let visualization = visualize_schedule(&ir)?;
         println!("{}", visualization);
         println!();
     }
     
-    // Write output to file or print to stdout
+    // Output: write to file or print to stdout. Your choice.
     if let Some(output_path) = &config.output_file {
         let path = Path::new(output_path);
-        
-        // Ensure parent directory exists
+        // Make sure the directory exists. Because panics are for amateurs.
         if let Some(parent) = path.parent() {
             ensure_dir_exists(parent)?;
         }
-        
         fs::write(path, &output)
             .map_err(|e| anyhow!("Failed to write output file: {}", e))?;
-        
         println!("Output written to {}", path.display());
     } else {
         println!("\n{}\n", output);
     }
     
-    // Run the plan if requested
+    // Actually run the plan if you asked for it. Hope you know what you're doing.
     if cli.run {
         let ast = zero_inbox::parse_file(&input_file)?;
         let metadata = config.to_ir_metadata()?;
         let mut ir = zero_inbox::ir::to_ir(&ast, metadata);
-        
-        // Optimize and schedule
         zero_inbox::optimizer::optimize(&mut ir);
         let schedule_mode = config.get_schedule_mode()?;
         let scheduler = zero_inbox::scheduler::create_scheduler(
@@ -244,11 +226,8 @@ fn main() -> Result<()> {
             if config.deepwork_tag.is_empty() { None } else { Some(config.deepwork_tag.clone()) }
         );
         scheduler.schedule(&mut ir);
-        
-        // Execute the plan
         runtime::execute(&mut ir, config.dry_run)?;
     }
-    
     Ok(())
 }
 

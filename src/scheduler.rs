@@ -20,13 +20,13 @@ impl ScheduleMode {
 }
 
 pub trait Scheduler {
-    fn schedule(&self, program: &mut IRProgram) -> &mut IRProgram;
+    fn schedule<'a>(&self, program: &'a mut IRProgram) -> &'a mut IRProgram;
 }
 
 pub struct NaiveScheduler;
 
 impl Scheduler for NaiveScheduler {
-    fn schedule(&self, program: &mut IRProgram) -> &mut IRProgram {
+    fn schedule<'a>(&self, program: &'a mut IRProgram) -> &'a mut IRProgram {
         info!("Applying naive scheduling");
         
         // Get today's date with the workday start time
@@ -67,7 +67,7 @@ impl Scheduler for NaiveScheduler {
 pub struct EarlyBirdScheduler;
 
 impl Scheduler for EarlyBirdScheduler {
-    fn schedule(&self, program: &mut IRProgram) -> &mut IRProgram {
+    fn schedule<'a>(&self, program: &'a mut IRProgram) -> &'a mut IRProgram {
         info!("Applying early bird scheduling (important tasks first)");
         
         // Get today's date with the workday start time
@@ -142,7 +142,7 @@ impl DeepworkScheduler {
 }
 
 impl Scheduler for DeepworkScheduler {
-    fn schedule(&self, program: &mut IRProgram) -> &mut IRProgram {
+    fn schedule<'a>(&self, program: &'a mut IRProgram) -> &'a mut IRProgram {
         info!("Applying deepwork-first scheduling");
         
         // Get today's date with the workday start time

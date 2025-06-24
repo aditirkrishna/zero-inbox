@@ -28,22 +28,21 @@ pub fn execute(program: &mut IRProgram, dry_run: bool) -> Result<()> {
     )?;
     
     // Get all scheduled tasks sorted by start time
-    let mut tasks: Vec<_> = program.all_tasks()
+    let mut task_ids: Vec<_> = program.all_tasks()
         .into_iter()
         .filter(|t| t.scheduled_start.is_some())
+        .map(|t| t.id.clone())
         .collect();
     
-    tasks.sort_by_key(|t| t.scheduled_start);
+    task_ids.sort_by_key(|id| program.task_map.get(id).and_then(|t| t.scheduled_start));
     
-    for task in &tasks {
-        let task_name = task.display_name();
-        let duration = task.duration_minutes();
-        
-        // Get the task from the program so we can modify it
-        let program_task = match program.task_map.get_mut(&task.id) {
+    for task_id in &task_ids {
+        let program_task = match program.task_map.get_mut(task_id) {
             Some(t) => t,
             None => continue,
         };
+        let task_name = program_task.display_name();
+        let duration = program_task.duration_minutes();
         
         println!("{} {} ({})", "Starting:".blue().bold(), task_name, format_duration(duration));
         

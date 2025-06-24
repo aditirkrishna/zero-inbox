@@ -68,7 +68,7 @@ impl Config {
         let workday_end = parse_time(&self.workday_end)?;
         
         Ok(IRMetadata {
-            timezone: chrono::Local::now().timezone().to_string(),
+            timezone: chrono::Local::now().offset().to_string(),
             workday_start,
             workday_end,
             max_parallel: self.max_parallel,

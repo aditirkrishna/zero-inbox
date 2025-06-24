@@ -3,89 +3,162 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Rust](https://github.com/zero-inbox/zero-inbox/workflows/Rust/badge.svg)](https://github.com/zero-inbox/zero-inbox/actions)
 
-A minimalist attention compiler for structured daily execution.
+> "Because your brain deserves a compiler, too."
 
-## Overview
+---
 
-Zero Inbox is a DSL compiler for attention/task modeling. It turns structured text files into optimized execution plans.
+## What is Zero Inbox?
 
-The project transforms human-readable task definitions into structured, optimized, and executable plans. Built in Rust, designed for precision, minimalism, and deep dev learning.
+Zero Inbox is a hand-crafted, slightly over-engineered, and definitely not AI-generated CLI tool for turning your chaotic, human-readable task lists into beautifully structured, machine-executable plans. It's a compiler. For your attention. In Rust. Because why not?
+
+- **Minimalist DSL**: Write your day like code. Because you already think in lists.
+- **Output options**: Shell scripts, Markdown, JSON, or even a calendar file. Impress your friends, confuse your enemies.
+- **Cross-platform**: Windows, macOS, Linux. If it runs Rust, it runs Zero Inbox.
+
+---
 
 ## Installation
 
-```bash
-# Install from crates.io
-cargo install zibox
+### Prerequisites
+- [Rust toolchain](https://rustup.rs/) (because you like living on the edge)
+- Git (for the source-code purists)
 
-# Or build from source
+### Install the easy way
+```sh
+cargo install zibox
+```
+
+### Or build from source (for the control freaks)
+```sh
 git clone https://github.com/zero-inbox/zero-inbox.git
 cd zero-inbox
 cargo install --path .
 ```
 
-## Usage
+- On Windows: Make sure `%USERPROFILE%\.cargo\bin` is in your PATH.
+- On macOS/Linux: `$HOME/.cargo/bin` should already be in your PATH, unless you like surprises.
 
-Create a `.zbx` file with your tasks:
+---
 
-```
-@morning
-  write(report) [2h]
-  clear(inbox)
+## Quick Start (Because Reading is for Later)
 
-drink(coffee) [15m]
+1. **Write a `.zbx` file:**
+   ```
+   @morning
+     write(report) [2h]
+     clear(inbox)
 
-@evening
-  reflect(day) [1h]
-  read(book) [30m]
-```
+   drink(coffee) [15m]
 
-Then compile it:
+   @evening
+     reflect(day) [1h]
+     read(book) [30m]
+   ```
+2. **Compile your plan:**
+   ```sh
+   zibox daily_plan.zbx
+   ```
+   By default, you get Markdown. Because everyone loves checklists.
 
-```bash
-zibox daily_plan.zbx
-```
+---
 
-### Output Formats
+## Output Formats (Pick Your Poison)
 
-Zero Inbox supports multiple output formats:
+- **Shell script:**
+  ```sh
+  zibox daily_plan.zbx --output-format shell --output-file schedule.sh
+  # Linux/macOS: bash schedule.sh
+  # Windows: Use WSL or Git Bash. Or just stare at the script.
+  ```
+- **Markdown:**
+  ```sh
+  zibox daily_plan.zbx --output-format markdown > plan.md
+  ```
+- **JSON:**
+  ```sh
+  zibox daily_plan.zbx --output-format json > plan.json
+  ```
+- **Calendar (.ics):**
+  ```sh
+  zibox daily_plan.zbx --calendar --output-file plan.ics
+  # Import into Google Calendar, Outlook, or Apple Calendar. Or don't.
+  ```
 
-```bash
-# Generate a shell script
-zibox daily_plan.zbx --output-format shell --output-file schedule.sh
+---
 
-# Generate markdown
-zibox daily_plan.zbx --output-format markdown
+## Advanced Usage (For the Ambitious)
 
-# Generate JSON
-zibox daily_plan.zbx --output-format json
+- **Set work hours:**
+  ```sh
+  zibox daily_plan.zbx --workday-start 09:00 --workday-end 18:00
+  ```
+- **Focus on tags:**
+  ```sh
+  zibox daily_plan.zbx --focus-tag deepwork
+  ```
+- **Visualize schedule (ASCII Gantt, because why not):**
+  ```sh
+  zibox daily_plan.zbx --visualize-schedule
+  ```
+- **Dry run (simulate, don't commit):**
+  ```sh
+  zibox daily_plan.zbx --dry-run
+  ```
+- **Show the IR (for the truly curious):**
+  ```sh
+  zibox daily_plan.zbx --show-ir
+  ```
+- **Custom config:**
+  Drop a `.ziboxrc` file (TOML) in your home or project directory. Because you like to tinker.
 
-# Generate calendar file
-zibox daily_plan.zbx --calendar
-```
+---
 
-### Scheduling Options
+## Platform Notes (No Excuses)
 
-```bash
-# Set work hours
-zibox daily_plan.zbx --workday-start 09:00 --workday-end 18:00
+- **Windows:** Shell scripts need WSL, Git Bash, or a compatible terminal. Everything else works natively. Welcome to 2024.
+- **macOS/Linux:** Everything just works. Unless it doesn't, in which case, blame your package manager.
+- **Calendar:** `.ics` output works everywhere. If it doesn't, it's not our fault.
 
-# Focus on specific tags
-zibox daily_plan.zbx --focus-tag #deepwork
+---
 
-# Visualize schedule
-zibox daily_plan.zbx --visualize-schedule
-```
+## Troubleshooting & FAQ (Read This Before Filing Issues)
 
-## Features
+- **Build errors?**
+  - Close anything using `target/` (Windows loves file locks).
+  - Run `cargo clean` and try again. Or just reboot, like it's 1998.
+- **Shell script won't run?**
+  - Use `bash schedule.sh` in a real terminal.
+- **Notifications not working?**
+  - Install `notify-send` (Linux) or use macOS's built-in notifications. Or just look at your screen.
+- **More help?**
+  - See [docs/USAGE.md](docs/USAGE.md). Or just experiment. What's the worst that could happen?
 
-- Parse `.zbx` files with a clean, minimal syntax
-- Generate executable shell scripts
-- Create markdown task lists
-- Export to calendar formats
-- Optimize task scheduling
-- Support for task dependencies
-- Visualization options
+---
+
+## Features (Because Bullet Points Are Fun)
+
+- Minimal, readable DSL for tasks
+- Multiple output formats (shell, markdown, JSON, calendar)
+- Task dependencies and priorities
+- Tag-based filtering and optimization
+- Configurable work hours and parallelism
+- Visual schedule output (for your inner artist)
+- Cross-platform, no external dependencies required for core features
+
+---
+
+## Documentation
+
+- [Project Steps](steps.md): The full, slightly obsessive development plan
+- [Usage Guide](docs/USAGE.md): Step-by-step instructions and advanced examples
+- [AST Implementation](docs/AST_IMPLEMENTATION.md): For compiler nerds
+
+---
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+MIT. Because sharing is caring.
+
+---
+
+*Zero Inbox: Written by humans, for humans. No AI, no magic, just a lot of coffee and questionable life choices.*

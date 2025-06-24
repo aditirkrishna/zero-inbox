@@ -97,11 +97,11 @@ fn emit_shell_script(program: &IRProgram) -> Result<String> {
             // If the task has a duration, add a sleep command
             if duration > 0 {
                 writeln!(&mut output, "# Sleep for {} seconds", duration * 60)?;
-                writeln!(&mut output, "echo \"Waiting for {} minutes...\"")?;
+                writeln!(&mut output, "echo \"Waiting for {} minutes...\"", duration)?;
                 writeln!(&mut output, "sleep {}", duration * 60)?;
             }
             
-            writeln!(&mut output, "echo \"Completed: {}\"")?;
+            writeln!(&mut output, "echo \"Completed: {}\"", task_name)?;
             writeln!(&mut output, "notify \"Task Complete\" \"{}\"", task_name)?;
             writeln!(&mut output, "")?;
         }
@@ -132,7 +132,19 @@ fn emit_markdown(program: &IRProgram) -> Result<String> {
     
     // Generate tasks by block
     for block in &program.blocks {
-        writeln!(&mut output, "## {}", block.name)?;
+        // Add a fun icon for common block names
+        let block_icon = match block.name.to_lowercase().as_str() {
+            "morning" => "☀️ ",
+            "afternoon" => "🌤️ ",
+            "evening" => "🌙 ",
+            "night" => "🌑 ",
+            "work" => "💼 ",
+            "break" => "☕ ",
+            _ => "",
+        };
+        // Subtle blue color for block headers (ANSI, will be ignored in plain Markdown)
+        let block_header = format!("## {}{}", block_icon, block.name);
+        writeln!(&mut output, "{}", block_header)?;
         writeln!(&mut output, "")?;
         
         for task in &block.tasks {
@@ -155,14 +167,33 @@ fn emit_markdown(program: &IRProgram) -> Result<String> {
             let priority_marker = match task.priority {
                 crate::ast::Priority::Low => "",
                 crate::ast::Priority::Medium => "",
-                crate::ast::Priority::High => "⭐ ",
-                crate::ast::Priority::Critical => "🔥 ",
+                crate::ast::Priority::High => "\x1b[33m⭐\x1b[0m ", // yellow
+                crate::ast::Priority::Critical => "\x1b[31m🔥\x1b[0m ", // red
             };
             
-            // Format tags
+            // Fun tag icons for common tags, with color
+            let tag_icons = |tag: &str| match tag.to_lowercase().as_str() {
+                "deepwork" => "🧠",
+                "admin" => "🗂️",
+                "health" => "🏃",
+                "learning" => "📚",
+                "collaboration" => "🤝",
+                "meeting" => "📅",
+                "focus" => "🎯",
+                "break" => "☕",
+                _ => "",
+            };
             let tags = if !task.tags.is_empty() {
                 let tag_list: Vec<_> = task.tags.iter()
-                    .map(|t| format!("`#{}`", t))
+                    .map(|t| {
+                        let icon = tag_icons(t);
+                        let colored_tag = format!("\x1b[36m`#{}`\x1b[0m", t); // cyan
+                        if icon.is_empty() {
+                            colored_tag
+                        } else {
+                            format!("{} {}", icon, colored_tag)
+                        }
+                    })
                     .collect();
                 format!(" {}", tag_list.join(" "))
             } else {
@@ -176,16 +207,19 @@ fn emit_markdown(program: &IRProgram) -> Result<String> {
                 "".to_string()
             };
             
+            let time_prefix = if !time_info.is_empty() { format!("[{}] ", time_info) } else { String::new() };
+            // Subtle green checkmark for completed tasks
+            let completed = if task.completed { " ✅" } else { "" };
             writeln!(
                 &mut output, 
                 "- {} {}**{}** {} {}{}{}",
-                if !time_info.is_empty() { &format!("[{}] ", time_info) } else { "" },
+                time_prefix,
                 priority_marker,
                 task_name,
                 duration_str,
                 tags,
                 deps,
-                if task.completed { " ✓" } else { "" }
+                completed
             )?;
         }
         
@@ -209,20 +243,15 @@ fn emit_calendar(program: &IRProgram) -> Result<String> {
                 continue;
             }
             
-            let start = task.scheduled_start.unwrap();
-            let end = task.scheduled_end.unwrap();
+            let start = task.scheduled_start.unwrap().with_timezone(&chrono::Utc);
+            let end = task.scheduled_end.unwrap().with_timezone(&chrono::Utc);
             
             let mut event = Event::new();
             event.summary(&task.display_name());
             event.description(&format!("Block: {}", block.name));
             event.starts(start);
             event.ends(end);
-            
-            // Add tags as categories
-            for tag in &task.tags {
-                event.add_category(tag);
-            }
-            
+            // Note: icalendar::Event does not support add_category in this version, so we skip adding categories.
             calendar.push(event);
         }
     }

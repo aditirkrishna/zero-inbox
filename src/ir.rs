@@ -78,7 +78,7 @@ pub struct IRMetadata {
 impl Default for IRMetadata {
     fn default() -> Self {
         Self {
-            timezone: Local::now().timezone().to_string(),
+            timezone: Local::now().offset().to_string(),
             workday_start: NaiveTime::from_hms_opt(9, 0, 0).unwrap(),
             workday_end: NaiveTime::from_hms_opt(17, 0, 0).unwrap(),
             max_parallel: 1,
