@@ -1,0 +1,1 @@
+E:\personal\zero\ inbox\target\debug\zero_inbox.exe: E:\personal\zero\ inbox\src\ast.rs E:\personal\zero\ inbox\src\ir.rs E:\personal\zero\ inbox\src\lexer.rs E:\personal\zero\ inbox\src\lib.rs E:\personal\zero\ inbox\src\main.rs E:\personal\zero\ inbox\src\parser.rs

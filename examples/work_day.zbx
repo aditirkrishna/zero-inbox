@@ -1,0 +1,18 @@
+@morning
+  check(email) [15m] #admin p:medium
+  standup(meeting) [30m] #collaboration p:high
+  code(feature) [2h] #deepwork p:critical after:standup
+
+@lunch
+  eat(healthy) [45m] #health
+  walk(outside) [15m] #health
+
+@afternoon
+  review(pull-requests) [1h] #collaboration p:high
+  debug(issue) [1h30m] #deepwork p:high
+  meeting(planning) [1h] #collaboration p:medium
+
+@evening
+  exercise(gym) [1h] #health p:medium
+  cook(dinner) [45m] #personal
+  read(book) [30m] #learning p:low

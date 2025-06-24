@@ -1,0 +1,36 @@
+[package]
+name = "zero_inbox"
+version = "0.1.0"
+edition = "2021"
+
+description = "A minimalist attention compiler for structured daily execution."
+license = "MIT"
+authors = ["Zero Inbox Team"]
+repository = "https://github.com/zero-inbox/zero-inbox"
+readme = "README.md"
+keywords = ["productivity", "compiler", "task-management", "cli"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+chrono = "0.4"
+clap = { version = "4.4", features = ["derive"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+colored = "2.0"
+anyhow = "1.0"
+thiserror = "1.0"
+icalendar = "0.15"
+plotters = "0.3"
+dirs = "5.0"
+log = "0.4"
+env_logger = "0.10"
+
+[dev-dependencies]
+tempfile = "3.3"
+assert_cmd = "2.0"
+predicates = "3.0"
+
+[[bin]]
+name = "zibox"
+path = "src/main.rs"

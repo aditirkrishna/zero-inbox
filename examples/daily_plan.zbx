@@ -1,0 +1,9 @@
+@morning
+  write(report) [2h]
+  clear(inbox)
+
+drink(coffee) [15m]
+
+@evening
+  reflect(day) [1h]
+  read(book) [30m]

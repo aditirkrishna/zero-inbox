@@ -1,4 +1,4 @@
-**Zero Inbox: 200-Step Plan for a Minimalist Attention Compiler (Rust CLI Project)**
+**Zero Inbox: 75-Step Plan for a Minimalist Attention Compiler (Rust CLI Project)**
 
 > A focused, compiler-style system for transforming human-readable task definitions into structured, optimized, and executable plans. Built in Rust, designed for precision, minimalism, and deep dev learning.
 
