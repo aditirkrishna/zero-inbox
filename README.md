@@ -1,9 +1,8 @@
-# zero-inbox: when your to-do list needs its own compiler
+# zero-inbox
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Rust](https://github.com/zero-inbox/zero-inbox/workflows/Rust/badge.svg)](https://github.com/zero-inbox/zero-inbox/actions)
 
-> "Compiling your chaos since 2023"
+> "when your to-do list needs its own compiler"
 
 ---
 
