@@ -157,4 +157,4 @@ MIT licensed. Use responsibly - we're not liable for any productivity gains (or 
 
 ---
 
-<p align="center"><i>built with ❤️ by aditi ramakrishnan</i></p>
+<p align="center"></i>built with ❤️ by aditi ramakrishnan</i></p>
