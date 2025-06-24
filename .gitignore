@@ -1,0 +1,230 @@
+# Rust build artifacts
+/target/
+**/*.rs.bk
+
+# Output and logs
+/output/
+*.log
+logbook.txt
+zibox.log
+
+# IDE/editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Byproducts
+*.d
+*.rlib
+*.pdb
+*.exe
+*.dll
+*.so
+*.dylib
+*.class
+*.o
+*.obj
+*.tmp
+*.bak
+*.old
+*.orig
+
+# Notebooks and temp docs
+*.ipynb
+
+# Ignore by default all debug fingerprints
+/target/debug/.fingerprint/
+
+# Ignore incremental build dirs
+/target/debug/incremental/
+
+# Ignore output from cargo install
+/target/debug/build/
+
+# Ignore output from cargo test
+/target/debug/deps/
+
+# Ignore output from cargo run
+/target/debug/zibox*
+
+# Ignore output from cargo check
+/target/debug/libzero_inbox*
+
+# Ignore output from cargo doc
+/target/debug/doc/
+
+# Ignore output from cargo bench
+/target/debug/bench/
+
+# Ignore output from cargo clippy
+/target/debug/clippy/
+
+# Ignore output from cargo fmt
+/target/debug/fmt/
+
+# Ignore output from cargo audit
+/target/debug/audit/
+
+# Ignore output from cargo outdated
+/target/debug/outdated/
+
+# Ignore output from cargo udeps
+/target/debug/udeps/
+
+# Ignore output from cargo tarpaulin
+/target/debug/tarpaulin/
+
+# Ignore output from cargo flamegraph
+/target/debug/flamegraph/
+
+# Ignore output from cargo llvm-cov
+/target/debug/llvm-cov/
+
+# Ignore output from cargo miri
+/target/debug/miri/
+
+# Ignore output from cargo fuzz
+/target/debug/fuzz/
+
+# Ignore output from cargo test
+/target/debug/test/
+
+# Ignore output from cargo run
+/target/debug/run/
+
+# Ignore output from cargo build
+/target/debug/build/
+
+# Ignore output from cargo install
+/target/debug/install/
+
+# Ignore output from cargo uninstall
+/target/debug/uninstall/
+
+# Ignore output from cargo update
+/target/debug/update/
+
+# Ignore output from cargo clean
+/target/debug/clean/
+
+# Ignore output from cargo check
+/target/debug/check/
+
+# Ignore output from cargo doc
+/target/debug/doc/
+
+# Ignore output from cargo bench
+/target/debug/bench/
+
+# Ignore output from cargo clippy
+/target/debug/clippy/
+
+# Ignore output from cargo fmt
+/target/debug/fmt/
+
+# Ignore output from cargo audit
+/target/debug/audit/
+
+# Ignore output from cargo outdated
+/target/debug/outdated/
+
+# Ignore output from cargo udeps
+/target/debug/udeps/
+
+# Ignore output from cargo tarpaulin
+/target/debug/tarpaulin/
+
+# Ignore output from cargo flamegraph
+/target/debug/flamegraph/
+
+# Ignore output from cargo llvm-cov
+/target/debug/llvm-cov/
+
+# Ignore output from cargo miri
+/target/debug/miri/
+
+# Ignore output from cargo fuzz
+/target/debug/fuzz/
+
+# Ignore output from cargo test
+/target/debug/test/
+
+# Ignore output from cargo run
+/target/debug/run/
+
+# Ignore output from cargo build
+/target/debug/build/
+
+# Ignore output from cargo install
+/target/debug/install/
+
+# Ignore output from cargo uninstall
+/target/debug/uninstall/
+
+# Ignore output from cargo update
+/target/debug/update/
+
+# Ignore output from cargo clean
+/target/debug/clean/
+
+# Ignore output from cargo check
+/target/debug/check/
+
+# Ignore output from cargo doc
+/target/debug/doc/
+
+# Ignore output from cargo bench
+/target/debug/bench/
+
+# Ignore output from cargo clippy
+/target/debug/clippy/
+
+# Ignore output from cargo fmt
+/target/debug/fmt/
+
+# Ignore output from cargo audit
+/target/debug/audit/
+
+# Ignore output from cargo outdated
+/target/debug/outdated/
+
+# Ignore output from cargo udeps
+/target/debug/udeps/
+
+# Ignore output from cargo tarpaulin
+/target/debug/tarpaulin/
+
+# Ignore output from cargo flamegraph
+/target/debug/flamegraph/
+
+# Ignore output from cargo llvm-cov
+/target/debug/llvm-cov/
+
+# Ignore output from cargo miri
+/target/debug/miri/
+
+# Ignore output from cargo fuzz
+/target/debug/fuzz/
+
+# Ignore output from cargo test
+/target/debug/test/
+
+# Ignore output from cargo run
+/target/debug/run/
+
+# Ignore output from cargo build
+/target/debug/build/
+
+# Ignore output from cargo install
+/target/debug/install/
+
+# Ignore output from cargo uninstall
+/target/debug/uninstall/
+
+# Ignore output from cargo update
+/target/debug/update/
+
+# Ignore output from cargo clean
+/target/debug/clean/

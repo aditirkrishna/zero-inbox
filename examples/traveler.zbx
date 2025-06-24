@@ -1,0 +1,17 @@
+# Digital Nomad/Traveler: Work, explore, travel, remote calls, journaling
+@morning
+  explore(city_walk) [1h] #wellness
+  breakfast [30m]
+  work(remote_project) [2h] #deepwork
+@midday
+  travel(train) [1h] #travel
+  lunch [45m]
+  call(client) [30m] #meeting
+@afternoon
+  coworking(sprint) [2h] #deepwork
+  explore(museum) [1h] #learning
+  journaling [30m] #reflection
+@evening
+  dinner [1h]
+  call(family) [30m]
+  plan(next_day) [20m]

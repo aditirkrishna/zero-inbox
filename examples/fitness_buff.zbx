@@ -1,0 +1,18 @@
+# Fitness Buff: Training, meal prep, recovery, discipline
+@morning
+  run(intervals) [45m] #training p:high
+  breakfast(protein) [20m]
+  stretch [15m] #wellness
+@midday
+  work(project) [2h] #focus
+  meal_prep(lunch) [30m] #health
+  gym(strength) [1h] #training p:critical
+@afternoon
+  work(calls) [1h] #meeting
+  snack [10m]
+  yoga [30m] #wellness
+@evening
+  dinner [30m]
+  walk [30m] #recovery
+  foam_roll [20m] #recovery
+  sleep [8h]

@@ -1,0 +1,17 @@
+# Freelancer: Client calls, project sprints, admin, learning
+@morning
+  plan(day) [15m]
+  client_call(acme) [45m] #meeting
+  work(project_alpha) [2h] #deepwork
+@midday
+  lunch [30m]
+  admin(invoices) [30m] #admin
+  client_call(beta) [30m] #meeting
+@afternoon
+  work(project_beta) [90m] #deepwork
+  marketing(social_media) [30m]
+  learning(course) [1h] #learning
+@evening
+  dinner [30m]
+  relax [1h]
+  plan(tomorrow) [15m]

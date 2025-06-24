@@ -1,0 +1,18 @@
+# Startup Founder: Ruthless focus, deepwork, meetings, hustle
+@morning
+  meditate(10m)
+  review(kpis) [20m] #admin
+  deepwork(product_strategy) [2h] #deepwork p:critical
+  standup(team) [30m] #meeting
+@midday
+  lunch(networking) [1h] #network
+  calls(investors) [45m] #meeting
+  emails(respond) [30m] #admin
+@afternoon
+  deepwork(product_roadmap) [90m] #deepwork p:high
+  1on1s(team) [1h] #meeting
+  review(pitch_deck) [30m] #deepwork
+@evening
+  gym(workout) [1h] #health
+  dinner(family) [1h] #family
+  read(industry_news) [30m] #learning

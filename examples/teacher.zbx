@@ -1,0 +1,18 @@
+# Teacher/Educator: Classes, grading, prep, office hours, family
+@morning
+  prep(lessons) [45m] #admin
+  class(math) [1h]
+  class(science) [1h]
+  grading(assignments) [45m] #admin
+@midday
+  lunch [30m]
+  office_hours [1h] #meeting
+  class(history) [1h]
+@afternoon
+  meeting(staff) [1h] #meeting
+  prep(materials) [30m] #admin
+  call(parents) [30m] #admin
+@evening
+  dinner(family) [1h]
+  family_time [1h]
+  read [30m]

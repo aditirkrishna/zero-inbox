@@ -1,0 +1,19 @@
+# Retiree: Leisure, hobbies, volunteering, family
+@morning
+  walk [30m] #wellness
+  breakfast [30m]
+  gardening [1h] #hobby
+  coffee [20m]
+@midday
+  volunteer(library) [2h] #community
+  lunch [1h]
+  nap [30m]
+@afternoon
+  reading [1h] #hobby
+  call(family) [30m]
+  puzzle [30m] #hobby
+@evening
+  dinner [1h]
+  tv [1h]
+  journal [20m]
+  sleep [8h]

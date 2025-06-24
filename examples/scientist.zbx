@@ -1,0 +1,17 @@
+# Scientist/Researcher: Experiments, reading, writing, collaboration
+@morning
+  review(lab_notes) [30m]
+  experiment(setup) [1h] #deepwork
+  experiment(run) [2h] #deepwork
+@midday
+  lunch [30m]
+  reading(papers) [1h] #learning
+  meeting(collab) [1h] #meeting
+@afternoon
+  data_analysis [90m] #deepwork
+  write(paper) [1h] #deepwork
+  admin(grants) [30m] #admin
+@evening
+  dinner [1h]
+  walk [30m]
+  read(fiction) [30m]

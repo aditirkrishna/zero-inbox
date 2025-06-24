@@ -1,0 +1,19 @@
+# Night Owl: Late starts, creative bursts, midnight coding
+@late_morning
+  sleep_in [1h]
+  breakfast [20m]
+  emails [20m]
+@afternoon
+  brainstorm(ideas) [1h] #creative
+  code(side_project) [2h] #deepwork p:high
+  lunch [30m]
+  walk(outside) [30m] #wellness
+@evening
+  collab(call) [1h] #meeting
+  code(main_project) [2h] #deepwork p:critical
+  dinner [30m]
+@night
+  game [1h]
+  write(blog) [45m] #creative
+  read(book) [30m]
+  code(experiment) [1h] #deepwork

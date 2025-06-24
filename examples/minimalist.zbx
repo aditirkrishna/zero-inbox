@@ -1,0 +1,17 @@
+# Minimalist/Zen: Intentional blocks, reflection, deep focus
+@morning
+  meditate [20m] #wellness
+  write(journal) [30m] #reflection
+  deepwork(main_task) [2h] #deepwork
+@midday
+  walk [30m] #wellness
+  lunch [30m]
+  read [30m]
+@afternoon
+  deepwork(secondary_task) [1h] #deepwork
+  tea [20m]
+  reflect [20m] #reflection
+@evening
+  dinner [30m]
+  yoga [30m] #wellness
+  sleep [8h]

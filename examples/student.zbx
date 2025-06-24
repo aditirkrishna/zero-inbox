@@ -1,0 +1,19 @@
+# Student: Classes, study blocks, social, side projects
+@morning
+  breakfast [15m]
+  class(math) [1h]
+  class(science) [1h]
+  study(homework) [1h] #deepwork
+@midday
+  lunch [30m]
+  class(history) [1h]
+  study(group) [1h] #collaboration
+@afternoon
+  code(side_project) [90m] #deepwork
+  gym [45m]
+  snack [15m]
+@evening
+  dinner [30m]
+  social(friends) [1h]
+  read [30m]
+  review(notes) [30m]

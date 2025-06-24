@@ -1,0 +1,19 @@
+# Parent: School runs, work, family time, self-care
+@morning
+  prep(breakfast) [30m]
+  school_run(dropoff) [30m] #family
+  work(email) [20m]
+  work(project) [90m] #focus
+@midday
+  lunch [30m]
+  call(client) [30m] #meeting
+  errands [45m] #admin
+@afternoon
+  school_run(pickup) [30m] #family
+  homework(help_kids) [45m] #family
+  cook(dinner) [45m]
+@evening
+  dinner(family) [1h]
+  storytime [20m] #family
+  relax(tv) [30m]
+  read [20m]

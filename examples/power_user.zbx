@@ -1,0 +1,18 @@
+# Power User/Dev Core: Automation, code, learning, health, meta-planning
+@morning
+  code(open_source) [2h] #deepwork p:critical
+  automate(workflow) [1h] #automation
+  review(prs) [30m] #admin
+@midday
+  lunch [30m]
+  learning(rust) [1h] #learning
+  code(personal_project) [1h] #deepwork
+@afternoon
+  gym [1h] #health
+  meta(plan_week) [30m] #meta
+  call(peer) [30m] #meeting
+@evening
+  dinner [30m]
+  write(blog) [45m] #creative
+  reflect [20m] #meta
+  read [30m]

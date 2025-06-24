@@ -1,0 +1,18 @@
+# Gamer/Streamer: Streams, practice, collabs, community, breaks
+@morning
+  breakfast [20m]
+  practice(game) [2h] #deepwork
+  break [15m]
+  review(replays) [45m] #learning
+@midday
+  lunch [30m]
+  stream(setup) [30m] #admin
+  stream(live) [2h] #streaming
+@afternoon
+  collab(team) [1h] #meeting
+  break [20m]
+  content(edit) [1h] #creative
+@evening
+  dinner [30m]
+  stream(late_night) [2h] #streaming
+  community(chat) [1h] #community

@@ -1,0 +1,17 @@
+# Artist/Creative: Studio, inspiration walks, deepwork, sharing
+@morning
+  walk(inspiration) [30m] #wellness
+  studio(paint) [2h] #deepwork
+  coffee [15m]
+@midday
+  lunch [30m]
+  sketchbook [45m] #creative
+  share(work_online) [30m] #admin
+@afternoon
+  studio(sculpt) [90m] #deepwork
+  call(collaborator) [30m] #meeting
+  gallery(research) [45m] #learning
+@evening
+  dinner [30m]
+  read(art_book) [30m]
+  meditate [15m]

@@ -1,0 +1,19 @@
+# Remote Worker: Async meetings, focus blocks, breaks, wellness
+@morning
+  standup(async) [15m] #meeting
+  focus_block(code) [2h] #deepwork
+  break [15m]
+  email [20m]
+@midday
+  lunch [30m]
+  call(team) [30m] #meeting
+  focus_block(review) [1h] #deepwork
+@afternoon
+  walk [20m] #wellness
+  focus_block(write_docs) [1h] #deepwork
+  break [15m]
+  sync(meeting) [30m] #meeting
+@evening
+  dinner [30m]
+  yoga [30m] #wellness
+  read [30m]
