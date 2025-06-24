@@ -157,6 +157,4 @@ MIT licensed. Use responsibly - we're not liable for any productivity gains (or 
 
 ---
 
-<p align="center">built with ❤️ by aditi ramakrishnan</p>
-
-*Zero Inbox: When your TODO list needs its own compiler*
+<p align="center"><i>built with ❤️ by aditi ramakrishnan</i></p>
